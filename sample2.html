@@ -1,0 +1,286 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="UTF-8">
+       
+        <br>
+        <br>
+<script>
+        function parseURLParams(url) {
+    var queryStart = url.indexOf("?") + 1, 
+        queryEnd   = url.indexOf("#") + 1 || url.length + 1,
+        query = url.slice(queryStart, queryEnd - 1),
+        pairs = query.replace(/\+/g, " ").split("&"),
+        parms = {}, i, n, v, nv;
+
+    if (query === url || query === "") {
+        return;
+    }
+
+    for (i = 0; i < pairs.length; i++) {
+        nv = pairs[i].split("=");
+        n = decodeURIComponent(nv[0]);
+        v = decodeURIComponent(nv[1]);
+
+        if (!parms.hasOwnProperty(n)) {
+            parms[n] = [];
+        }
+
+        parms[n].push(nv.length === 2 ? v : null);
+    }
+    return parms;
+}
+function handleSubmit()
+    {
+        var obj= parseURLParams(window.location.href);
+
+    qScore=parseInt(obj["qScore"]);
+    nQA=parseInt(obj["nQA"]);
+    nCQ=parseInt(obj["nCQ"]);
+    nQA++;
+    if(document.getElementById('h1').checked)
+    {
+        qScore+= 50;
+        nCQ++;
+    }
+    document.getElementById("questForm").action = "sample3.html?"+"qScore="+qScore+"&nQA="+nQA+"&nCQ="+nCQ;
+    }
+
+</script>
+        
+                </head>
+                <body background="gradient-bg.png">
+                    <center>
+            <div>
+                <div align="center" style="width:700px;border-radius:20px;padding:10px;border:3px solid black">
+                <div style="background-color:grey;color:black;text-align:center;padding:5px"> Question 2
+                </div>
+                <div align="left">
+                    <form id="questForm" action="" method="post">
+                        <br>
+                        <table>
+                            <tr>
+                                <td>
+                        <p> Select the Cosine Theorem Formula</p>
+                        
+                        <div align="left; " >
+                        <input type="radio" name="value" value="option1" id="h1" > 
+                            <math xmlns="http://www.w3.org/1998/Math/MathML" >
+                            <mrow>
+                                <mi>cos</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mo>(</mo>
+                                <mi>&#x3B1;</mi>
+                                <mo>&#xB1;</mo>
+                                <mi>&#x3B2;</mi>
+                                <mo>)</mo>
+                            </mrow>
+                                <mo>=</mo>
+                                <mi>cos</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mo>(</mo>
+                                <mi>&#x3B1;</mi>
+                                <mo>)</mo>
+                            </mrow>
+                                <mi>cos</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mo>(</mo>
+                                <mi>&#x3B2;</mi>
+                                <mo>)</mo>
+                            </mrow>
+                                <mo>&#xB1;</mo>
+                                <mi>sin</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mo>(</mo>
+                                <mi>&#x3B1;</mi>
+                                <mo>)</mo>
+                            </mrow>
+                                <mi>sin</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mo>(</mo>
+                                <mi>&#x3B2;</mi>
+                                <mo>)</mo>
+                            </mrow>
+                        </mrow>
+                    </math>
+                       
+                       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        <input type="radio" name="value" value="option2" id="h2" > 
+                                 <math xmlns="http://www.w3.org/1998/Math/MathML" >
+                            <mrow>
+                                <mi>sin</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mo>(</mo>
+                                <mi>&#x3B1;</mi>
+                                <mo>&#xB1;</mo>
+                                <mi>&#x3B2;</mi>
+                                <mo>)</mo>
+                            </mrow>
+                                <mo>=</mo>
+                                <mi>sin</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mo>(</mo>
+                                <mi>&#x3B1;</mi>
+                                <mo>)</mo>
+                            </mrow>
+                                <mi>cos</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mo>(</mo>
+                                <mi>&#x3B2;</mi>
+                                <mo>)</mo>
+                            </mrow>
+                                <mo>&#xB1;</mo>
+                                <mi>cos</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mo>(</mo>
+                                <mi>&#x3B1;</mi>
+                                <mo>)</mo>
+                            </mrow>
+                                <mi>sin</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mo>(</mo>
+                                <mi>&#x3B2;</mi>
+                                <mo>)</mo>
+                            </mrow>
+                        </mrow>
+                    </math>
+                          </div>  
+                        <br>
+                        <br>
+                        <div align="left">
+                        <input type="radio" name="value" value="option3" id="h3"> 
+                          <math xmlns="http://www.w3.org/1998/Math/MathML" >
+                            <mrow>
+                                   <mi>sin</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mo>(</mo>
+                                <mi>&#x3B1;</mi>
+                                <mo>)</mo>
+                            </mrow>
+                                <mo>+</mo>
+                                <mi>sin</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mo>(</mo>
+                                <mi>&#x3B2;</mi>
+                                <mo>)</mo>
+                            </mrow>
+                            </mrow>    
+                                <mo>=</mo>
+                                <mi>2sin</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mfenced>
+                                        <mfrac>
+                                        <mrow>
+                                            <mi>&#x3B1</mi>
+                                            <mo>+</mo>
+                                            <mi>&#x3B2</mi>
+                                        </mrow>
+                                        <mrow>                 
+                                            <mn>2</mn>
+                                        </mrow>
+                                        </mfrac>
+                                    </mfenced>
+                            </mrow>
+                                <mi>cos</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mfenced>
+                                        <mfrac>
+                                        <mrow>
+                                            <mi>&#x3B1</mi>
+                                            <mo>-</mo>
+                                            <mi>&#x3B2</mi>
+                                        </mrow>
+                                        <mrow>                 
+                                            <mn>2</mn>
+                                        </mrow>
+                                        </mfrac>
+                                    </mfenced>
+                            </mrow>
+                        </mrow>
+                    </math>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    
+                    <input type="radio" name="value" value="option4" id="h4"> 
+                         <math xmlns="http://www.w3.org/1998/Math/MathML" >
+                            <mrow>
+                                   <mi>sin</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mo>(</mo>
+                                <mi>&#x3B1;</mi>
+                                <mo>)</mo>
+                            </mrow>
+                                <mo>-</mo>
+                                <mi>sin</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mo>(</mo>
+                                <mi>&#x3B2;</mi>
+                                <mo>)</mo>
+                            </mrow>
+                            </mrow>    
+                                <mo>=</mo>
+                                <mi>2cos</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mfenced>
+                                        <mfrac>
+                                        <mrow>
+                                            <mi>&#x3B1</mi>
+                                            <mo>+</mo>
+                                            <mi>&#x3B2</mi>
+                                        </mrow>
+                                        <mrow>                 
+                                            <mn>2</mn>
+                                        </mrow>
+                                        </mfrac>
+                                    </mfenced>
+                            </mrow>
+                                <mi>sin</mi>
+                                <mo>&#x2061;</mo>
+                            <mrow>
+                                <mfenced>
+                                        <mfrac>
+                                        <mrow>
+                                            <mi>&#x3B1</mi>
+                                            <mo>-</mo>
+                                            <mi>&#x3B2</mi>
+                                        </mrow>
+                                        <mrow>                 
+                                            <mn>2</mn>
+                                        </mrow>
+                                        </mfrac>
+                                    </mfenced>
+                            </mrow>
+                        </mrow>
+                    </math>
+                        </div>
+                        <br>
+                        <br><br>
+                        <button type="submit" value="Submit & next Question" style="height:50px;border-radius:10px;" onclick="handleSubmit()">Submit & next Question</button>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        <button type="submit" value="Cancel & Clear Selection" style="height:50px;border-radius:10px;" >Cancel & Clear Selection</button></td>
+                        
+                    </tr>
+                    </table>
+                    </form> 
+          
+                </div>
+            </div>
+         </div>  
+        </center>
+    </body>
+</html>

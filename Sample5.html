@@ -1,0 +1,122 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <br>
+  <br>
+  <script type="text/javascript">
+     function parseURLParams(url)
+         {
+        var queryStart = url.indexOf("?") + 1, 
+        queryEnd   = url.indexOf("#") + 1 || url.length + 1,
+        query = url.slice(queryStart, queryEnd - 1),
+        pairs = query.replace(/\+/g, " ").split("&"),
+        parms = {}, i, n, v, nv;
+
+        if (query === url || query === "") {
+        return;
+        }
+
+    for (i = 0; i < pairs.length; i++) {
+        nv = pairs[i].split("=");
+        n = decodeURIComponent(nv[0]);
+        v = decodeURIComponent(nv[1]);
+
+        if (!parms.hasOwnProperty(n)) {
+            parms[n] = [];
+        }
+
+        parms[n].push(nv.length === 2 ? v : null);
+        }
+    return parms;
+         }
+
+    function handleSubmit()
+        {
+        var obj= parseURLParams(window.location.href);
+
+        qScore=parseInt(obj["qScore"]);
+        nQA=parseInt(obj["nQA"]);
+        nCQ=parseInt(obj["nCQ"]);
+        nR=parseInt(obj["nR"]);
+        nCR=parseInt(obj["nCR"]);
+        rScore=parseInt(obj["rScore"]);
+        nV=parseInt(obj["nV"]);
+        nCV=parseInt(obj["nCV"]);
+        vScore=parseInt(obj["vScore"]);
+        
+        document.getElementById("questForm").action = "Score.html?"+"qScore="+qScore+"&nQA="+nQA+"&nCQ="+nCQ+"&rScore="+rScore+"&nCR="+nCR+"&nR="+nR+"&vScore="+vScore+"&nV="+nV+"&nCV="+nCV;
+        }
+
+  </script>
+
+    
+    </head>
+    <body background="gradient-bg.png">
+        <center>
+             <div align="center" style="width:700px;border-radius:20px;padding:10px;border:3px solid black">
+                <div style="background-color:grey;color:black;text-align:center;padding:5px"> Survey </div>
+                <div align="left">
+                    <form id="questForm" method="post" action="">
+                        <table>
+                            <tr>
+                                <td>
+                        <p> How did you like the center? </p>
+                       
+                    <div align="left; float:left; width:50%" >
+                        <label id="l1" name="l1">Comments: </label>
+                        <textarea id="ta1" name="ta1" Style="width:400px;height:80px;overflow:scroll;"> </textarea>
+                    <br>
+                    </td>
+                    <div align="left">
+
+                        <table>
+                            <br>
+                            <tr>Select test area Location:</tr>
+                            <tr>
+                                <td>
+                                    <p>City :</p>
+
+                                    <input list="location" name="location">
+                                    <datalist id="location">
+                                        <option value="San Jose">San Jose</option>
+                                        <option value="San Fransisco">San Fransisco</option>
+                                        <option value="Mountain View">Mountain View</option>
+                                        <option value="Palo Alto">Palo Alto</option>
+                                    </datalist> 
+                                </td>
+                                <td>
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+                                </td>
+                                 <td>
+                                    <p>Room# :</p>
+                                     <input list="room" name="room">
+                                <datalist id="room">
+                                    <option value="337">Room 337</option>
+                                    <option value="210">Room 210</option>
+                                    <option value="922">Room 922</option>
+                                    <option value="10">Room 10</option>
+                                </datalist>
+                                </td>
+                                </tr>
+                                </table>                        
+                            </div>
+                           
+                            <div align="left">
+                            <table>
+                               <td>
+                                <button type="submit" value="Submit & next Question" style="height:50px;border-radius:10px;" onclick="handleSubmit()">Submit & next Question</button>
+                                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                                <button type="submit" value="Cancel & Clear Selection" style="height:50px;border-radius:10px;width:150px;" >Skip & Get Score  </button>
+                               
+                               </td>
+                             </table>
+                             </form> 
+          
+                         </div>
+                    </div>
+                 </div>  
+        </center>
+    </body>
+</html>

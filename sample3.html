@@ -1,0 +1,144 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="UTF-8">
+        
+
+        <script>
+        function parseURLParams(url)
+         {
+        var queryStart = url.indexOf("?") + 1, 
+        queryEnd   = url.indexOf("#") + 1 || url.length + 1,
+        query = url.slice(queryStart, queryEnd - 1),
+        pairs = query.replace(/\+/g, " ").split("&"),
+        parms = {}, i, n, v, nv;
+
+        if (query === url || query === "") {
+        return;
+        }
+
+    for (i = 0; i < pairs.length; i++) {
+        nv = pairs[i].split("=");
+        n = decodeURIComponent(nv[0]);
+        v = decodeURIComponent(nv[1]);
+
+        if (!parms.hasOwnProperty(n)) {
+            parms[n] = [];
+        }
+
+        parms[n].push(nv.length === 2 ? v : null);
+        }
+    return parms;
+         }
+
+    function handleSubmit()
+        {
+        var obj= parseURLParams(window.location.href);
+
+        qScore=parseInt(obj["qScore"]);
+        nQA=parseInt(obj["nQA"]);
+        nCQ=parseInt(obj["nCQ"]);
+        nR=1;
+        nCR=0;
+        rScore=0;
+        if(document.getElementById('h1').checked && document.getElementById('h4').checked)
+        {
+        rScore= 50;
+        nCR++;
+        }
+        document.getElementById("questForm").action = "Sample4.html?"+"qScore="+qScore+"&nQA="+nQA+"&nCQ="+nCQ+"&rScore="+rScore+"&nCR="+nCR+"&nR="+nR;
+        }
+    
+</script>
+
+        <br>
+        <br>
+        </head>
+        <body background="gradient-bg.png">
+            <center>
+            <div align="center" style="width:800px;border-radius:20px;padding:10px;border:3px solid black">
+                <div style="background-color:grey;color:black;text-align:center;padding:5px"> Question 3
+                </div>
+                <div align="left">
+                    <form id="questForm" action="" method="post">
+                        <table>
+                            <tr>
+                             
+                        <p> As per the latest twitter news, complete the article snippet given by selecting approprite choices for the blank </p>
+                           <tr>
+                                <td>
+                             
+                    <div align="left; float:left; width:50%" >
+                       
+                         <input type="radio" name="value" value="$650" id="h1" onclick="myFunction()"> Option 1 Mark 1: $650 
+                     </br>
+                        <input type="radio" name="value" value="$550" id="h2" onclick="myFunction()"> Option 2 Mark 1: $550 
+                    </br>
+                        <input type="radio" name="value" value="$750" id="h3" onclick="myFunction()"> Option 3 Mark 1: $750 
+                   </td>
+                    
+                    <td>
+                        <input type="radio" name="Cname" value="Twitter" id="h4" onclick="myFunct()"> Option 1 Mark 2: Twitter
+                    </br>
+                      <input type="radio" name="Cname" value="Google" id="h5" onclick="myFunct()"> Option 1 Mark 2: Google
+                  </br>
+                     <input type="radio" name="Cname" value="Facebook" id="h6" onclick="myFunct()"> Option 1 Mark 2: Facebook
+                   
+                    </td>
+                </tr>
+                </table>
+                <br>
+                    <div align= "right; float: right; margin-right: 10px; text-align: left; border: 2px solid; padding: 5px; width: 100px; border-radius: 20px;">
+                    <table>
+                        <tr>
+                        <td>
+                            Twitter wants more cash. The company announced two <mark id="demo">_____</mark> million debt offerings with a filing today. Each with a potential $100 increase provided that the sales are oversubscribed. Assuming full tip, including the $100 million boosters,<mark id="pres">_____</mark> will raise upto $1.5 billion with the two offerings.
+                        </td>
+                    </tr>
+                </table>
+                 </div>
+                     <br>
+                    <table>
+                        <tr>
+                        <button type="submit" value="Submit & next Question" style="height:50px;border-radius:10px;" onclick="handleSubmit()">Submit & next Question</button>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        <button type="submit" value="Cancel & Clear Selection" style="height:50px;border-radius:10px;" >Cancel & Clear Selection</button>
+                            
+                     </tr>
+                    </table>
+                    </form> 
+                
+            </div>
+        </div>
+         </div>  
+       
+        <script>
+            function myFunction() {
+              if (document.getElementById("h1").checked){
+               var x = document.getElementById("h1").value;
+                document.getElementById("demo").innerHTML = x;
+                }else if(document.getElementById("h2").checked){
+                var x = document.getElementById("h2").value;
+               document.getElementById("demo").innerHTML = x;
+                }else if(document.getElementById("h3").checked){
+                 var x = document.getElementById("h3").value;
+               document.getElementById("demo").innerHTML = x;
+                }
+            }
+
+            function myFunct() {
+                if (document.getElementById("h4").checked){
+                var x = document.getElementById("h4").value;
+                document.getElementById("pres").innerHTML = x;
+                }else if(document.getElementById("h5").checked){
+                var x = document.getElementById("h5").value;
+                document.getElementById("pres").innerHTML = x;
+                }else if(document.getElementById("h6").checked){
+                 var x = document.getElementById("h6").value;
+                document.getElementById("pres").innerHTML = x;
+                }
+            }
+
+        </script>
+        </center>
+    </body>
+</html>

@@ -1,0 +1,111 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="UTF-8">
+ <script>
+        function parseURLParams(url)
+         {
+        var queryStart = url.indexOf("?") + 1, 
+        queryEnd   = url.indexOf("#") + 1 || url.length + 1,
+        query = url.slice(queryStart, queryEnd - 1),
+        pairs = query.replace(/\+/g, " ").split("&"),
+        parms = {}, i, n, v, nv;
+
+        if (query === url || query === "") {
+        return;
+        }
+
+    for (i = 0; i < pairs.length; i++) {
+        nv = pairs[i].split("=");
+        n = decodeURIComponent(nv[0]);
+        v = decodeURIComponent(nv[1]);
+
+        if (!parms.hasOwnProperty(n)) {
+            parms[n] = [];
+        }
+
+        parms[n].push(nv.length === 2 ? v : null);
+        }
+    return parms;
+         }
+
+    function handleSubmit()
+        {
+        var obj= parseURLParams(window.location.href);
+
+        qScore=parseInt(obj["qScore"]);
+        nQA=parseInt(obj["nQA"]);
+        nCQ=parseInt(obj["nCQ"]);
+        nR=parseInt(obj["nR"]);
+        nCR=parseInt(obj["nCR"]);
+        rScore=parseInt(obj["rScore"]);
+        nV=1;
+        nCV=0;
+        vScore=0;
+        if(document.getElementById('h1').checked)
+        {
+        vScore= 50;
+        nCV++;
+        }
+        document.getElementById("questForm").action = "Sample5.html?"+"qScore="+qScore+"&nQA="+nQA+"&nCQ="+nCQ+"&rScore="+rScore+"&nCR="+nCR+"&nR="+nR+"&vScore="+vScore+"&nV="+nV+"&nCV="+nCV;
+        }
+    
+</script>
+
+  </head>
+    <body background="gradient-bg.png">
+        
+        <br>
+        <br>
+        <center>
+            <div>
+                <div align="center" style="width:800px;border-radius:20px;padding:10px;border:3px solid black">
+                <div style="background-color:grey;color:black;text-align:center;padding:5px"> Question 4
+                </div>
+                <div align="left">
+                    <form id="questForm" method="post" action="">
+                        <table>
+                            <tr>
+                                <td>
+                    <p> Watch the video and answer the following question. what is the source as mentioned in the video? </p>
+                       
+                    <div align="left; float:left; width:50%" >
+                       
+                        <input type="radio" name="value" value="Option1" id="h1"> NASA.Gov
+                            <mspace depth="0.5ex" height="0.5ex" width="1ex"/>
+                         
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+                            <input type="radio" name="value" value="Option1" id="h2"> Data.Gov
+                    </div>
+                    <br>
+                    <br>
+                    <div align="left">
+                        
+                        <input type="radio" name="value" value="Option1" id="h3"> Facebook
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                    
+                        <input type="radio" name="value" value="Option1" id="h4"> XYZ.net
+                         
+                    </div>
+                        <br>
+                        <br>
+                        <br>
+                        <button type="submit" value="Submit & next Question" style="height:50px;border-radius:10px;" onclick="handleSubmit()">Submit & next Question</button>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        <button type="submit" value="Cancel & Clear Selection" style="height:50px;border-radius:10px;" >Cancel & Clear Selection</button></td>
+                        <td>
+                            <div align="right">
+                                <iframe width="400" height="200" src="https://www.youtube.com/embed/FWAeDXhEpaQ" frameborder="0" allowfullscreen>
+                             </iframe>
+                    </div>
+                </td>
+                </tr>
+                    </table>
+                    </form> 
+          
+            </div>
+        </div>
+         </div>  
+        </center>
+    </body>
+</html>
